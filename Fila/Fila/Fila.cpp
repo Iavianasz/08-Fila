@@ -87,13 +87,39 @@ void insere()
 	cout << "Digite o elemento: ";
 	cin >> novo->valor;
 	novo->prox = NULL;
+	
+	if (fim == NULL) {
+		fim = novo;
+		inicio = novo;
+		return;
+	}
+
+	fim->prox = novo;
+	fim = novo;
 
 
 }
 
 void remove()
 {
+	if (inicio == NULL) {
+		cout << "Fila vazia." << endl;
+		return;
+	}
 
+	cout << "O primeiro elemento era: " << inicio->valor << endl;
+
+	NO* secondElement = inicio->prox;
+	free(inicio);
+
+	inicio = secondElement;
+
+	if (inicio == NULL) {
+		cout << "Fila Vazia." << endl;
+		return;
+	}
+
+	cout << "O primeiro elemento agora e: " << inicio->valor << endl;
 
 
 }
